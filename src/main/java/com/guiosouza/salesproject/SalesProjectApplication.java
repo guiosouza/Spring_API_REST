@@ -53,12 +53,17 @@ public class SalesProjectApplication implements CommandLineRunner {
 		salesRepository.save(v3);
 		salesRepository.save(v4);
 		
-		List<SalesProjections> list1 = salesRepository.findNumbersOfSales(sdf.parse("12/12/2021"), sdf.parse("17/12/2021"));
+		System.out.println(salesRepository.count());
+		
+		List<SalesProjections> list1 = salesRepository.findBySales(sdf.parse("12/12/2021"), sdf.parse("17/12/2021"));
+
 		
 		for (SalesProjections obj: list1) {
-			System.out.println(obj.getSale_date());
+			System.out.println(obj);
 		}
 
 	}
+	
+
 
 }

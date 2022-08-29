@@ -25,10 +25,10 @@ public class SalesResource {
 		return ResponseEntity.ok().body(list);
 	}
 
-
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<Sales> findById(@PathVariable Long id) {
 		Sales sale = salesRepository.findById(id).get();
 		return ResponseEntity.ok().body(sale);
 	}
+	
 }
