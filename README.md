@@ -8,4 +8,8 @@
 - Gerar uma nova venda;
 - Retornar a lista de vendedores com os campos: `nome`, `total de vendas do vendedor` e `média de vendas diária`, conforme o período informado por um parâmetro.
 
+<<<<<<< HEAD
 ## RESULTADO:
+=======
+## RESULTADO:
+>>>>>>> bcbe114e06d53f128380e996573c5dc30d9c9ee5
