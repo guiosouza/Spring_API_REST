@@ -53,6 +53,7 @@ public class SalesProjectApplication implements CommandLineRunner {
 		salesRepository.save(v3);
 		salesRepository.save(v4);
 		
+		// contador teste
 		System.out.println(salesRepository.count());
 		
 		List<SalesProjections> list1 = salesRepository.findBySales(sdf.parse("12/12/2021"), sdf.parse("17/12/2021"));
