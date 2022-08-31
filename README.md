@@ -7,3 +7,5 @@
 ### O serviço também deve conter a seguinte requisição REST:
 - Gerar uma nova venda;
 - Retornar a lista de vendedores com os campos: `nome`, `total de vendas do vendedor` e `média de vendas diária`, conforme o período informado por um parâmetro.
+
+## RESULTADO:
