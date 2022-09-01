@@ -13,7 +13,7 @@ import javax.persistence.ManyToOne;
 
 
 
-@Entity
+@Entity // entidade gerenciada pelo JPA
 public class Sales implements Serializable {
 	/* CLASS MUST HAVE
 	 * - sale ID
@@ -23,16 +23,16 @@ public class Sales implements Serializable {
 	 * - seller name 
 	 */
 	private static final long serialVersionUID = 1L;
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id // notation para id
+	@GeneratedValue(strategy = GenerationType.IDENTITY) // Id auto incrementável no banco de dados
 	private Long id;
 	private Date sale_date;
 	private Double sale_value;
 	private String name;
 	
 	
-	@ManyToOne
-	@JoinColumn(name = "seller_id") // foreign key to show in table
+	@ManyToOne // muitas vendas para 1 seller somente
+	@JoinColumn(name = "seller_id") // chave estrangeira na tabela de vendas
 	private Seller seller;
 	
 	public Sales() {

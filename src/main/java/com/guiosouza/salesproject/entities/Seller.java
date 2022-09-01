@@ -13,18 +13,18 @@ import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-@Entity
+@Entity // entidade gerenciada pelo JPA
 public class Seller implements Serializable {
 	// Serializable converter objeto java em bites
 	
 	private static final long serialVersionUID = 1L;
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY) // Id auto incrementável no banco de dados	
 	private Long id; // 
 	private String name;
 	
-	@JsonIgnore
-	@OneToMany(mappedBy = "seller")
+	@JsonIgnore // não ficar serializando em loop
+	@OneToMany(mappedBy = "seller") // um seller para várias vendas na tabela de vendas
 	private List<Sales> sales = new ArrayList<>(); 
 	
 	public Seller () {
@@ -57,7 +57,7 @@ public class Seller implements Serializable {
 		return sales;
 	}
 	
-	// HashCode Equals é para um critério personalizado de comparação
+	// HashCode Equals é para um critério personalizado de comparação 
 
 	// comparar dois sellers por id
 	@Override
