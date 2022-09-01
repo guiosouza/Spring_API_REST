@@ -3,15 +3,17 @@ package com.guiosouza.salesproject;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import com.guiosouza.salesproject.dto.SellerDTO;
 import com.guiosouza.salesproject.entities.Sales;
 import com.guiosouza.salesproject.entities.Seller;
-import com.guiosouza.salesproject.projections.SalesProjections;
+import com.guiosouza.salesproject.projections.SellerProjections;
 import com.guiosouza.salesproject.repositories.SalesRepository;
 import com.guiosouza.salesproject.repositories.SellerRepository;
 
@@ -56,10 +58,11 @@ public class SalesProjectApplication implements CommandLineRunner {
 		// contador teste
 		System.out.println(salesRepository.count());
 		
-		List<SalesProjections> list1 = salesRepository.findBySales(sdf.parse("12/12/2021"), sdf.parse("17/12/2021"));
+		List<SellerProjections> list1 = sellerRepository.findBySales(sdf.parse("12/12/2021"), sdf.parse("17/12/2021"));
+		List<SellerDTO> result1 = list1.stream().map(x -> new SellerDTO(x)).collect(Collectors.toList());
 
 		
-		for (SalesProjections obj: list1) {
+		for (SellerDTO obj: result1) {
 			System.out.println(obj);
 		}
 

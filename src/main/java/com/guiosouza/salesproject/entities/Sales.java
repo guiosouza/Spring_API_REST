@@ -28,7 +28,7 @@ public class Sales implements Serializable {
 	private Long id;
 	private Date sale_date;
 	private Double sale_value;
-	private String seller_name;
+	private String name;
 	
 	
 	@ManyToOne
@@ -39,12 +39,12 @@ public class Sales implements Serializable {
 		
 	}
 
-	public Sales(Long id, Date sale_date, Double sale_value, String seller_name, Seller seller) {
+	public Sales(Long id, Date sale_date, Double sale_value, String name, Seller seller) {
 		super();
 		this.id = id;
 		this.sale_date = sale_date;
 		this.sale_value = sale_value;
-		this.seller_name = seller.getName();
+		this.name = seller.getName();
 		this.seller = seller;
 	}
 
@@ -64,12 +64,12 @@ public class Sales implements Serializable {
 		this.sale_date = sale_date;
 	}
 
-	public String getSeller_name() {
-		return seller_name;
+	public String getName() {
+		return name;
 	}
 
-	public void setSeller_name(String seller_name) {
-		this.seller_name = seller_name;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public Double getSale_value() {
@@ -104,12 +104,5 @@ public class Sales implements Serializable {
 			return false;
 		Sales other = (Sales) obj;
 		return Objects.equals(id, other.id);
-	}
-
-	@Override
-	public String toString() {
-		return "Sales [sale_value=" + sale_value + "]";
-	}
-	
-	
+	}	
 }

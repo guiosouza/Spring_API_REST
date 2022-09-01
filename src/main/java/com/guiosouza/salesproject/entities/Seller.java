@@ -15,11 +15,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Seller implements Serializable {
+	// Serializable converter objeto java em bites
 	
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Long id; // 
 	private String name;
 	
 	@JsonIgnore
@@ -52,20 +53,20 @@ public class Seller implements Serializable {
 		this.name = name;
 	}
 	
-
 	public List<Sales> getSales() {
 		return sales;
 	}
 	
 	// HashCode Equals é para um critério personalizado de comparação
 
+	// comparar dois sellers por id
 	@Override
-	public int hashCode() {
+	public int hashCode() { // comparar por código
 		return Objects.hash(id);
 	}
 
 	@Override
-	public boolean equals(Object obj) {
+	public boolean equals(Object obj) { // garantir comparação
 		if (this == obj)
 			return true;
 		if (obj == null)
